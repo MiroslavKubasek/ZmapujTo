@@ -1,0 +1,99 @@
+HOST: http://api.zmapujto.cz/v1
+
+--- ZmapujTo ---
+
+---
+ZmapujTo API
+---
+
+--
+Illegal Dumps
+--
+
+List of illegal dumps
+GET /dumps
+< 200
+< Content-Type: application/json
+{ "items": [
+{
+            "id": 123872, 
+            "sizenumber": 3, 
+            "typ": "MEDIUM", 
+            "status": "NEW", 
+            "accuracy": 1, 
+            "time": "24.07.2013", 
+            "title": "Černá skládka č. 123872", 
+            "adresa": "V olšinách 1667/10, 100 00 Prague-Prague 10", 
+            "longitude": 14.481096561377,
+            "latitude": 50.0706536275697, 
+            "img": "http://pics.zmapujto.cz/2013/137467467616277.jpg" 
+        },
+        {
+            "id": 123871, 
+            "sizenumber": 7, 
+            "typ": "BIG", 
+            "status": "NEW", 
+            "accuracy": 1, 
+            "time": "24.07.2013", 
+            "title": "Černá skládka č. 123871", 
+            "adresa": "V olšinách 1451/20, 100 00 Prague-Prague 10", 
+            "longitude": 14.4819548682617,
+            "latitude": 50.0706191964431, 
+            "img": "http://pics.zmapujto.cz/2013/137467435422482.jpg" 
+        },
+        {
+            "id": 123870, 
+            "sizenumber": 3, 
+            "typ": "MEDIUM", 
+            "status": "NEW", 
+            "accuracy": 1, 
+            "time": "24.07.2013", 
+            "title": "Černá skládka č. 123870", 
+            "adresa": "Dvouletky 14, 100 00 Prague 10", 
+            "longitude": 14.4981987079345,
+            "latitude": 50.0757138101207, 
+            "img": "http://pics.zmapujto.cz/2013/137467415311828.jpg" 
+        },
+        {
+            "id": 123869, 
+            "sizenumber": 3, 
+            "typ": "MEDIUM", 
+            "status": "NEW", 
+            "accuracy": 1, 
+            "time": "24.07.2013", 
+            "title": "Černá skládka č. 123869", 
+            "adresa": "Bajkalská, 100 00 Prague 10", 
+            "longitude": 14.4772818312134,
+            "latitude": 50.0718950200432, 
+            "img": "http://pics.zmapujto.cz/2013/137467391898215.jpg" 
+        },
+        {
+            "id": 123868, 
+            "sizenumber": 1, 
+            "typ": "SMALL", 
+            "status": "NEW", 
+            "accuracy": 1, 
+            "time": "24.07.2013", 
+            "title": "Černá skládka č. 123868", 
+            "adresa": "Chotíkov 22, 330 17 Chotíkov", 
+            "longitude": 13.2985441476324,
+            "latitude": 49.7937226018383, 
+            "img": "http://pics.zmapujto.cz/2013/137465172972913.jpg" 
+        }
+] }
+
+Save new products in your shopping cart
+POST /shopping-cart
+> Content-Type: application/json
+{ "product":"1AB23ORM", "quantity": 2 }
+< 201
+< Content-Type: application/json
+{ "status": "created", "url": "/shopping-cart/2" }
+
+-- Payment Resources --
+
+This resource allows you to submit payment information to process your *shopping cart* items
+POST /payment
+{ "cc": "12345678900", "cvc": "123", "expiry": "0112" }
+< 200
+{ "receipt": "/payment/receipt/1" }
